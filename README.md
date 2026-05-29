@@ -2,13 +2,44 @@
 
 Curated portfolio version of a collaborative Yale deep learning final project on safety-quality tradeoffs in text-to-image diffusion sampling.
 
+![Diffusion](https://img.shields.io/badge/Diffusion-safety_eval-blue)
+![Pareto](https://img.shields.io/badge/Pareto-tradeoff_analysis-purple)
+![PyTorch](https://img.shields.io/badge/PyTorch-research_stack-orange)
+![Public safe](https://img.shields.io/badge/Public--safe-no_image_outputs-green)
+
+Project context: Yale course final project | CPSC 5420 | Curated public showcase
+
 This repository is a display-first summary of the project. It does not duplicate unsafe image galleries, large generation outputs, raw prompt dumps, model weights, or private course artifacts. The full collaborative implementation is linked below.
+
+## At a Glance
+
+<table>
+  <tr>
+    <td><strong>Research question</strong><br>Can inference-time guidance reduce unsafe generations without retraining?</td>
+    <td><strong>Evaluation lens</strong><br>Safety is measured as a tradeoff against CLIP alignment, FID, and runtime.</td>
+    <td><strong>Public boundary</strong><br>No generated image galleries, prompt dumps, model weights, or unsafe examples.</td>
+  </tr>
+</table>
 
 ## Overview
 
 The project studied whether inference-time classifier guidance can reduce unsafe generations from Stable Diffusion without retraining the model. The method evaluates a frozen safety classifier on the Tweedie estimate of the predicted clean image at each denoising step, then applies a classifier-energy gradient to steer the latent update.
 
 The key design goal was not to claim a free safety improvement. We evaluated safety as a Pareto tradeoff against prompt alignment, FID, and runtime.
+
+## Evaluation Loop
+
+```mermaid
+flowchart LR
+    A[Text prompt] --> B[DDIM sampling]
+    B --> C[Tweedie clean-image estimate]
+    C --> D[Frozen safety classifier]
+    D --> E[Classifier-energy gradient]
+    E --> B
+    B --> F[Final image]
+    F --> G[Safety, CLIP, FID, runtime metrics]
+    G --> H[Pareto tradeoff analysis]
+```
 
 ## Full Collaborative Implementation
 
