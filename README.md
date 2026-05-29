@@ -27,20 +27,6 @@ The project studied whether inference-time classifier guidance can reduce unsafe
 
 The key design goal was not to claim a free safety improvement. We evaluated safety as a Pareto tradeoff against prompt alignment, FID, and runtime.
 
-## Evaluation Loop
-
-```mermaid
-flowchart LR
-    A[Text prompt] --> B[DDIM sampling]
-    B --> C[Tweedie clean-image estimate]
-    C --> D[Frozen safety classifier]
-    D --> E[Classifier-energy gradient]
-    E --> B
-    B --> F[Final image]
-    F --> G[Safety, CLIP, FID, runtime metrics]
-    G --> H[Pareto tradeoff analysis]
-```
-
 ## Full Collaborative Implementation
 
 Full group repository:
