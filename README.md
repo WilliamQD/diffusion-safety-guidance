@@ -11,7 +11,7 @@ Project context: Yale course final project | CPSC 5420 | Curated public showcase
 
 This repository is a display-first summary of the project. It does not duplicate unsafe image galleries, large generation outputs, raw prompt dumps, model weights, or private course artifacts. The full collaborative implementation and final report are linked below.
 
-**Read the deliverables:** [Portfolio report](REPORT.md) | [External final report](https://github.com/Severus-Yang0/Inference-time-safety-guidance-for-diffusion-models-submission/blob/main/report/main.pdf) | [Presentation summary](PRESENTATION.md)
+**Reports:** [Final report index](reports/README.md) | [External final report](https://github.com/Severus-Yang0/Inference-time-safety-guidance-for-diffusion-models-submission/blob/main/report/main.pdf)
 
 ## At a Glance
 
@@ -81,8 +81,8 @@ On the explicit-content stratum, an architecturally disjoint NudeNet evaluator a
 This repo includes small, safe utility code for the adaptive guidance schedule and Pareto table handling:
 
 ```text
-REPORT.md
-PRESENTATION.md
+reports/
+  README.md          # direct link to the public collaborative final report
 src/diffusion_safety/
   schedule.py       # adaptive guidance strength function
   pareto.py         # identify non-dominated safety-quality points
